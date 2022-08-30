@@ -1,11 +1,11 @@
 import { StatusBar } from 'expo-status-bar';
 import React, { useState } from 'react';
-import { Button, StyleSheet, Text, TextInput, View, Keyboard } from 'react-native';
+import { Button, StyleSheet, Text, TextInput, View, Keyboard, Alert } from 'react-native';
 
 let count = 0;
 
 export default function GuessNumber() {
-    const [number] = useState(Math.round((Math.random() * 100) + 1));
+    const [number, setNumber] = useState(Math.round((Math.random() * 100) + 1));
     const [message, setMessage] = useState('Guess a number between 1-100');
     const [guess, setGuess] = useState('');
 
@@ -14,7 +14,10 @@ export default function GuessNumber() {
         Keyboard.dismiss();
 
         if (parseInt(guess) === number) {
-            setMessage('Correct! You guessed the number in ' + count + ' guesses');
+            setMessage('Guess a number between 1-100');
+            setNumber(Math.round((Math.random() * 100) + 1));
+            setGuess('');
+            Alert.alert('Correct! You guessed the number in ' + count + ' guesses');
         }
         if (parseInt(guess) < number) {
             setMessage('Your guess ' + guess + ' is too low');
