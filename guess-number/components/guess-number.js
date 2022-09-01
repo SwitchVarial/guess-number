@@ -31,7 +31,9 @@ export default function GuessNumber() {
         <View style={styles.container}>
             <Text style={styles.text}>{message}</Text>
             <TextInput style={styles.input} onChangeText={guess => setGuess(guess)} value={guess} keyboardType="number-pad"/>
-            <Button onPress={guessPressed} style={styles.button} title="Guess the Number"></Button>
+            <View style={styles.button}>
+              <Button onPress={guessPressed} style={styles.button} color="white" title="Guess the Number"/>
+            </View>
             <StatusBar style="auto" />
         </View>
     )
@@ -56,6 +58,7 @@ const styles = StyleSheet.create({
     },
     button: {
       padding: 5,
-      margin: 50,
+      margin: 10,
+      backgroundColor: 'blue',
     }
   });
