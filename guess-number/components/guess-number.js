@@ -18,6 +18,7 @@ export default function GuessNumber() {
             setNumber(Math.round((Math.random() * 100) + 1));
             setGuess('');
             Alert.alert('Correct! You guessed the number in ' + count + ' guesses');
+            count = 0;
         }
         if (parseInt(guess) < number) {
             setMessage('Your guess ' + guess + ' is too low');
